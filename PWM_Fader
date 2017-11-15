@@ -1,0 +1,51 @@
+int p=0;
+
+int u;
+
+if (time_loc.hour * 60 + time_loc.min >= sensors_param.cfgdes[0] && time_loc.hour * 60 + time_loc.min <= sensors_param.cfgdes[0] + sensors_param.cfgdes[2] - 1)
+
+{
+
+u = (time_loc.hour*60 + time_loc.min - sensors_param.cfgdes[0])*60 + time_loc.sec;
+
+p = 240*u/sensors_param.cfgdes[2]/60 ;
+
+analogWrite(0, p);
+
+}
+
+if (time_loc.hour * 60 + time_loc.min >= sensors_param.cfgdes[1] && time_loc.hour * 60 + time_loc.min <= sensors_param.cfgdes[1] + sensors_param.cfgdes[2] - 1)
+
+{
+
+u = (time_loc.hour*60 + time_loc.min - sensors_param.cfgdes[1])*60 + time_loc.sec;
+
+p = 239-240*u/sensors_param.cfgdes[2]/60 ;
+
+analogWrite(0, p);
+
+}
+
+if (time_loc.hour * 60 + time_loc.min >= sensors_param.cfgdes[3] && time_loc.hour * 60 + time_loc.min <= sensors_param.cfgdes[3] + sensors_param.cfgdes[5] - 1)
+
+{
+
+u = (time_loc.hour*60 + time_loc.min - sensors_param.cfgdes[3])*60 + time_loc.sec;
+
+p = 240*u/sensors_param.cfgdes[5]/60 ;
+
+analogWrite(1, p);
+
+}
+
+if (time_loc.hour * 60 + time_loc.min >= sensors_param.cfgdes[4] && time_loc.hour * 60 + time_loc.min <= sensors_param.cfgdes[4] + sensors_param.cfgdes[5] - 1)
+
+{
+
+u = (time_loc.hour*60 + time_loc.min - sensors_param.cfgdes[4])*60 + time_loc.sec;
+
+p = 239-240*u/sensors_param.cfgdes[5]/60 ;
+
+analogWrite(1, p);
+
+}
